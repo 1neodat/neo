@@ -47,10 +47,23 @@
             max-width: 1200px;
             margin: 0 auto;
             display: flex;
+            flex-direction: row;
+            gap: 20px;
+         }
+         .left-section {
+            flex: 2;
+            display: flex;
+            flex-direction: column;
             gap: 20px;
          }
          .gestion-section {
-            flex: 2;
+            background-color: #FFFFFF;
+            border: 1px solid #E0E0E0;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+         }
+         .details-section {
             background-color: #FFFFFF;
             border: 1px solid #E0E0E0;
             border-radius: 12px;
@@ -65,7 +78,7 @@
             padding: 20px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
          }
-         .agenda-section h2, .gestion-section h2 {
+         .agenda-section h2, .gestion-section h2, .details-section h2 {
             text-align: center;
             color: #8b0000;
             font-size: 1.5em;
@@ -100,6 +113,23 @@
             font-size: 0.9em;
             color: #8B0000;
          }
+         summary {
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1.2em;
+            color: #8b0000;
+            margin-bottom: 10px;
+         }
+         summary:hover {
+            color: #5e2129;
+         }
+         ul {
+            list-style: none;
+            padding-left: 20px;
+         }
+         li {
+            margin: 8px 0;
+         }
          footer {
             background-color: #012e46;
             color: #FFFFFF;
@@ -111,9 +141,6 @@
          @media (max-width: 768px) {
             main {
                flex-direction: column;
-            }
-            .gestion-section, .agenda-section {
-               flex: 1;
             }
          }
       </style>
@@ -128,15 +155,36 @@
          </div>
       </header>
       <main>
-         <div class="gestion-section">
-            <h2>Gestión de Documentos</h2>
-            <p>
-               El Instructivo para la Gestión de Documentos se establece como una herramienta técnica para estandarizar y optimizar el proceso de carga de información en el SAIC, garantizando una gestión eficiente, una organización estructurada y la accesibilidad necesaria para cumplir con los criterios de acreditación institucional.
-            </p>
-            <div class="authors">
-               <p><b>Desarrollado por:</b></p>
-               <p>Silvia Jaramillo</p>
-               <p>Darío Hurtado</p>
+         <div class="left-section">
+            <div class="gestion-section">
+               <h2>Gestión de Documentos</h2>
+               <p>
+                  El Instructivo para la Gestión de Documentos se establece como una herramienta técnica para estandarizar y optimizar el proceso de carga de información en el SAIC, garantizando una gestión eficiente, una organización estructurada y la accesibilidad necesaria para cumplir con los criterios de acreditación institucional.
+               </p>
+               <div class="authors">
+                  <p><b>Desarrollado por:</b></p>
+                  <p>Silvia Jaramillo</p>
+                  <p>Darío Hurtado</p>
+               </div>
+            </div>
+            <div class="details-section">
+               <details>
+                  <summary>Procesos y subprocesos</summary>
+                  <ul>
+                     <li>Admisión académica</li>
+                     <li>Homologación</li>
+                     <li>Reconocimiento</li>
+                     <li>Validación de conocimiento</li>
+                     <li>Validación por ejercicio profesional</li>
+                  </ul>
+               </details>
+               <details>
+                  <summary>Documentos generales</summary>
+                  <ul>
+                     <li>Guías y procedimientos</li>
+                     <li>Formatos</li>
+                  </ul>
+               </details>
             </div>
          </div>
          <div class="agenda-section">
