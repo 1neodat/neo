@@ -61,11 +61,11 @@
             margin-bottom: 15px;
             text-align: center;
          }
-         .download-section, .calendar-section {
+         .download-section, .calendar-section, .agenda-section {
             margin-top: 20px;
             text-align: center;
          }
-         .download-section a, .calendar-section button {
+         .download-section a, .calendar-section button, .agenda-section button {
             display: inline-block;
             margin: 10px 5px;
             padding: 10px 15px;
@@ -75,10 +75,10 @@
             border-radius: 5px;
             transition: background-color 0.3s ease;
          }
-         .download-section a:hover, .calendar-section button:hover {
+         .download-section a:hover, .calendar-section button:hover, .agenda-section button:hover {
             background-color: #5e2129;
          }
-         .calendar-section input[type="date"] {
+         .calendar-section input[type="date"], .agenda-section textarea {
             padding: 10px;
             margin: 10px;
             font-size: 1em;
@@ -112,7 +112,6 @@
             </p>
             <div class="download-section">
                <h3>Descargar Archivos</h3>
-               <!-- Reemplace "usuario", "repositorio" y "archivo" con los valores reales -->
                <a href="https://raw.githubusercontent.com/1neodat/neo/main/CI-GC-F-16%20Formato%20Informe%20t%C3%A9cnico.docx" download>Descargar Informe Técnico</a>
             </div>
             <div class="calendar-section">
@@ -120,6 +119,11 @@
                <label for="calendar">Seleccione una fecha importante:</label>
                <input type="date" id="calendar" name="calendar">
                <button onclick="alertFecha()">Confirmar Fecha</button>
+            </div>
+            <div class="agenda-section">
+               <h3>Crear Agenda</h3>
+               <textarea id="agenda" rows="5" cols="50" placeholder="Escriba sus actividades para esta fecha..."></textarea><br>
+               <button onclick="guardarAgenda()">Guardar Agenda</button>
             </div>
          </div>
       </main>
@@ -133,6 +137,16 @@
                alert("Ha seleccionado la fecha: " + fechaSeleccionada);
             } else {
                alert("Por favor, seleccione una fecha.");
+            }
+         }
+         
+         function guardarAgenda() {
+            const fecha = document.getElementById("calendar").value;
+            const agenda = document.getElementById("agenda").value;
+            if (fecha && agenda) {
+               alert("Agenda guardada para la fecha " + fecha + ":\n" + agenda);
+            } else {
+               alert("Por favor, seleccione una fecha y escriba en la agenda.");
             }
          }
       </script>
