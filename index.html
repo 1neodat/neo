@@ -61,33 +61,21 @@
             text-align: center;
             color: #8b0000;
          }
-         .agenda-section form {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            max-width: 600px;
-            margin: 0 auto;
-         }
-         .agenda-section label {
-            font-weight: bold;
-         }
-         .agenda-section input, .agenda-section textarea {
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
+         .agenda-section table {
             width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
          }
-         .agenda-section button {
-            padding: 10px 20px;
+         .agenda-section table, .agenda-section th, .agenda-section td {
+            border: 1px solid #ccc;
+         }
+         .agenda-section th, .agenda-section td {
+            padding: 10px;
+            text-align: center;
+         }
+         .agenda-section th {
             background-color: #8b0000;
             color: #FFFFFF;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-         }
-         .agenda-section button:hover {
-            background-color: #5e2129;
          }
       </style>
    </head>
@@ -102,22 +90,29 @@
       </header>
       <main>
          <div class="agenda-section">
-            <h2>Agenda de Carga de Documentos</h2>
-            <form>
-               <label for="doc-name">Nombre del documento:</label>
-               <input type="text" id="doc-name" name="doc-name" placeholder="Ingrese el nombre del documento" required>
-               
-               <label for="doc-date">Fecha de carga:</label>
-               <input type="date" id="doc-date" name="doc-date" required>
-               
-               <label for="doc-description">Descripción:</label>
-               <textarea id="doc-description" name="doc-description" rows="4" placeholder="Describa brevemente el documento"></textarea>
-               
-               <label for="doc-file">Cargar archivo:</label>
-               <input type="file" id="doc-file" name="doc-file" required>
-               
-               <button type="submit">Registrar Documento</button>
-            </form>
+            <h2>Agenda de Entrega de Documentos</h2>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Nombre del Documento</th>
+                     <th>Fecha de Entrega</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Informe Técnico</td>
+                     <td>2025-02-10</td>
+                  </tr>
+                  <tr>
+                     <td>Matriz CPC</td>
+                     <td>2025-03-15</td>
+                  </tr>
+                  <tr>
+                     <td>Plan Estratégico</td>
+                     <td>2025-04-20</td>
+                  </tr>
+               </tbody>
+            </table>
          </div>
       </main>
       <footer>
