@@ -28,11 +28,15 @@
             max-width: 1200px;
             margin: 0 auto;
          }
+         header .logo {
+            flex: 0 0 100px;
+         }
          header .logo img {
             width: 100%;
             height: auto;
          }
          header h1 {
+            flex: 1;
             font-size: 1.8em;
             margin: 5px 0;
             font-weight: bold;
@@ -44,23 +48,24 @@
             margin: 0 auto;
             display: flex;
             gap: 20px;
-            flex-wrap: wrap;
          }
-         .section {
+         .gestion-section {
+            flex: 2;
             background-color: #FFFFFF;
             border: 1px solid #E0E0E0;
             border-radius: 12px;
             padding: 20px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+         }
+         .agenda-section {
             flex: 1;
-            min-width: 300px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background-color: #FFFFFF;
+            border: 1px solid #E0E0E0;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
          }
-         .section:hover {
-            transform: scale(1.02);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-         }
-         .section h2 {
+         .agenda-section h2, .gestion-section h2 {
             text-align: center;
             color: #8b0000;
             font-size: 1.5em;
@@ -106,7 +111,9 @@
          @media (max-width: 768px) {
             main {
                flex-direction: column;
-               align-items: center;
+            }
+            .gestion-section, .agenda-section {
+               flex: 1;
             }
          }
       </style>
@@ -121,7 +128,7 @@
          </div>
       </header>
       <main>
-         <div class="section gestion-section">
+         <div class="gestion-section">
             <h2>Gestión de Documentos</h2>
             <p>
                El Instructivo para la Gestión de Documentos se establece como una herramienta técnica para estandarizar y optimizar el proceso de carga de información en el SAIC, garantizando una gestión eficiente, una organización estructurada y la accesibilidad necesaria para cumplir con los criterios de acreditación institucional.
@@ -132,7 +139,7 @@
                <p>Darío Hurtado</p>
             </div>
          </div>
-         <div class="section agenda-section">
+         <div class="agenda-section">
             <h2>Agenda de Entrega de Documentos</h2>
             <table>
                <thead>
