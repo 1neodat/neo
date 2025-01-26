@@ -28,38 +28,45 @@
             max-width: 1200px;
             margin: 0 auto;
          }
-         header .logo {
-            flex: 0 0 100px;
-         }
          header .logo img {
             width: 100%;
             height: auto;
          }
          header h1 {
-            flex: 1;
             font-size: 1.7em;
-            margin: 5px 0 0 0;
+            margin: 5px 0;
             font-weight: bold;
             line-height: 1.2;
             color: #FFFFFF;
-            text-align: center;
          }
          main {
             padding: 30px;
-            max-width: 1000px;
+            max-width: 1200px;
             margin: 0 auto;
+            display: flex;
+            gap: 20px;
          }
-         .agenda-section {
+         .gestion-section {
+            flex: 1;
             background-color: #FFFFFF;
             border: 1px solid #E0E0E0;
-            border-radius: 8px;
+            border-radius: 12px;
             padding: 20px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            margin-top: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
          }
-         .agenda-section h2 {
+         .agenda-section {
+            flex: 0 0 30%;
+            background-color: #FFFFFF;
+            border: 1px solid #E0E0E0;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+         }
+         .agenda-section h2, .gestion-section h2 {
             text-align: center;
             color: #8b0000;
+            font-size: 1.5em;
+            margin-bottom: 15px;
          }
          .agenda-section table {
             width: 100%;
@@ -69,13 +76,33 @@
          .agenda-section table, .agenda-section th, .agenda-section td {
             border: 1px solid #ccc;
          }
-         .agenda-section th, .agenda-section td {
-            padding: 10px;
-            text-align: center;
-         }
          .agenda-section th {
             background-color: #8b0000;
             color: #FFFFFF;
+         }
+         .gestion-section p {
+            text-align: justify;
+            line-height: 1.6;
+         }
+         .gestion-section .authors p {
+            font-size: 0.9em;
+            color: #8B0000;
+         }
+         footer {
+            background-color: #012e46;
+            color: #FFFFFF;
+            padding: 25px 0;
+            text-align: center;
+            font-size: 0.8em;
+            border-top: 4px solid #f6a700;
+         }
+         @media (max-width: 768px) {
+            main {
+               flex-direction: column;
+            }
+            .agenda-section, .gestion-section {
+               flex: 0 0 100%;
+            }
          }
       </style>
    </head>
@@ -89,6 +116,17 @@
          </div>
       </header>
       <main>
+         <div class="gestion-section">
+            <h2>Gestión de Documentos</h2>
+            <p>
+               El Instructivo para la Gestión de Documentos se establece como una herramienta técnica para estandarizar y optimizar el proceso de carga de información en el SAIC, garantizando una gestión eficiente, una organización estructurada y la accesibilidad necesaria para cumplir con los criterios de acreditación institucional.
+            </p>
+            <div class="authors">
+               <p><b>Desarrollado por:</b></p>
+               <p>Silvia Jaramillo</p>
+               <p>Darío Hurtado</p>
+            </div>
+         </div>
          <div class="agenda-section">
             <h2>Agenda de Entrega de Documentos</h2>
             <table>
