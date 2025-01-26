@@ -61,11 +61,11 @@
             margin-bottom: 15px;
             text-align: center;
          }
-         .download-section {
+         .download-section, .calendar-section {
             margin-top: 20px;
             text-align: center;
          }
-         .download-section a {
+         .download-section a, .calendar-section button {
             display: inline-block;
             margin: 10px 5px;
             padding: 10px 15px;
@@ -75,8 +75,15 @@
             border-radius: 5px;
             transition: background-color 0.3s ease;
          }
-         .download-section a:hover {
+         .download-section a:hover, .calendar-section button:hover {
             background-color: #5e2129;
+         }
+         .calendar-section input[type="date"] {
+            padding: 10px;
+            margin: 10px;
+            font-size: 1em;
+            border: 1px solid #ccc;
+            border-radius: 5px;
          }
          footer {
             background-color: #012e46;
@@ -101,19 +108,33 @@
          <div class="card">
             <h2>Gestión de documentos</h2>
             <p>
-               Aquí puede encontrar documentos importantes disponibles para descarga directa desde GitHub.
+               Aquí puede encontrar documentos importantes disponibles para descarga directa.
             </p>
             <div class="download-section">
                <h3>Descargar Archivos</h3>
-               <!-- Cambie el enlace "RAW" con el archivo específico -->
-               <a href="https://github.com/1neodat/neo/blob/main/CI-GC-F-16%20Formato%20Informe%20t%C3%A9cnico.docx" download>Descargar Archivo 1</a>
-               <a href="https://raw.githubusercontent.com/usuario/repositorio/main/archivo2.zip" download>Descargar Archivo 2</a>
-               <a href="https://raw.githubusercontent.com/usuario/repositorio/main/archivo3.docx" download>Descargar Archivo 3</a>
+               <!-- Reemplace "usuario", "repositorio" y "archivo" con los valores reales -->
+               <a href="https://raw.githubusercontent.com/1neodat/neo/main/CI-GC-F-16%20Formato%20Informe%20t%C3%A9cnico.docx" download>Descargar Informe Técnico</a>
+            </div>
+            <div class="calendar-section">
+               <h3>Seleccionar Fecha</h3>
+               <label for="calendar">Seleccione una fecha importante:</label>
+               <input type="date" id="calendar" name="calendar">
+               <button onclick="alertFecha()">Confirmar Fecha</button>
             </div>
          </div>
       </main>
       <footer>
          © 2024 UIDE - Todos los derechos reservados
       </footer>
+      <script>
+         function alertFecha() {
+            const fechaSeleccionada = document.getElementById("calendar").value;
+            if (fechaSeleccionada) {
+               alert("Ha seleccionado la fecha: " + fechaSeleccionada);
+            } else {
+               alert("Por favor, seleccione una fecha.");
+            }
+         }
+      </script>
    </body>
 </html>
