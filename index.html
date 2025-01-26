@@ -28,6 +28,9 @@
             max-width: 1200px;
             margin: 0 auto;
          }
+         header .logo {
+            flex: 0 0 100px;
+         }
          header .logo img {
             width: 100%;
             height: auto;
@@ -37,6 +40,7 @@
             font-size: 1.7em;
             margin: 5px 0 0 0;
             font-weight: bold;
+            line-height: 1.2;
             color: #FFFFFF;
             text-align: center;
          }
@@ -45,53 +49,45 @@
             max-width: 1000px;
             margin: 0 auto;
          }
-         .card {
-            max-width: 1000px;
-            margin: 0 auto;
-            border-radius: 12px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            background: #FFFFFF;
-            padding: 30px;
-            text-align: justify;
-            margin-bottom: 10px;
-         }
-         .card h2 {
-            font-size: 1.4em;
-            color: #8B0000;
-            margin-bottom: 15px;
-            text-align: center;
-         }
-         .download-section, .calendar-section, .agenda-section {
+         .agenda-section {
+            background-color: #FFFFFF;
+            border: 1px solid #E0E0E0;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             margin-top: 20px;
+         }
+         .agenda-section h2 {
             text-align: center;
+            color: #8b0000;
          }
-         .download-section a, .calendar-section button, .agenda-section button {
-            display: inline-block;
-            margin: 10px 5px;
-            padding: 10px 15px;
-            background-color: #8b0000;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
+         .agenda-section form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            max-width: 600px;
+            margin: 0 auto;
          }
-         .download-section a:hover, .calendar-section button:hover, .agenda-section button:hover {
-            background-color: #5e2129;
+         .agenda-section label {
+            font-weight: bold;
          }
-         .calendar-section input[type="date"], .agenda-section textarea {
+         .agenda-section input, .agenda-section textarea {
             padding: 10px;
-            margin: 10px;
-            font-size: 1em;
             border: 1px solid #ccc;
             border-radius: 5px;
+            width: 100%;
          }
-         footer {
-            background-color: #012e46;
+         .agenda-section button {
+            padding: 10px 20px;
+            background-color: #8b0000;
             color: #FFFFFF;
-            padding: 25px 0;
-            text-align: center;
-            font-size: 0.8em;
-            border-top: 4px solid #f6a700;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+         }
+         .agenda-section button:hover {
+            background-color: #5e2129;
          }
       </style>
    </head>
@@ -105,53 +101,27 @@
          </div>
       </header>
       <main>
-         <div class="card">
-            <h2>Gestión de documentos</h2>
-            <p>
-               Aquí puede encontrar documentos importantes disponibles para descarga directa.
-            </p>
-            <div class="download-section">
-               <h3>Descargar Archivos</h3>
-               <!-- Cambie el enlace RAW al archivo en GitHub -->
-               <a href="https://raw.githubusercontent.com/1neodat/SAIC/main/CI-GC-F-16%20Formato%20Informe%20t%C3%A9cnico.docx" download="CI-GC-F-16 Formato Informe técnico.docx">
-                  Descargar Informe Técnico
-               </a>
-            </div>
-            <div class="calendar-section">
-               <h3>Seleccionar Fecha</h3>
-               <label for="calendar">Seleccione una fecha importante:</label>
-               <input type="date" id="calendar" name="calendar">
-               <button onclick="alertFecha()">Confirmar Fecha</button>
-            </div>
-            <div class="agenda-section">
-               <h3>Crear Agenda</h3>
-               <textarea id="agenda" rows="5" cols="50" placeholder="Escriba sus actividades para esta fecha..."></textarea><br>
-               <button onclick="guardarAgenda()">Guardar Agenda</button>
-            </div>
+         <div class="agenda-section">
+            <h2>Agenda de Carga de Documentos</h2>
+            <form>
+               <label for="doc-name">Nombre del documento:</label>
+               <input type="text" id="doc-name" name="doc-name" placeholder="Ingrese el nombre del documento" required>
+               
+               <label for="doc-date">Fecha de carga:</label>
+               <input type="date" id="doc-date" name="doc-date" required>
+               
+               <label for="doc-description">Descripción:</label>
+               <textarea id="doc-description" name="doc-description" rows="4" placeholder="Describa brevemente el documento"></textarea>
+               
+               <label for="doc-file">Cargar archivo:</label>
+               <input type="file" id="doc-file" name="doc-file" required>
+               
+               <button type="submit">Registrar Documento</button>
+            </form>
          </div>
       </main>
       <footer>
          © 2024 UIDE - Todos los derechos reservados
       </footer>
-      <script>
-         function alertFecha() {
-            const fechaSeleccionada = document.getElementById("calendar").value;
-            if (fechaSeleccionada) {
-               alert("Ha seleccionado la fecha: " + fechaSeleccionada);
-            } else {
-               alert("Por favor, seleccione una fecha.");
-            }
-         }
-         
-         function guardarAgenda() {
-            const fecha = document.getElementById("calendar").value;
-            const agenda = document.getElementById("agenda").value;
-            if (fecha && agenda) {
-               alert("Agenda guardada para la fecha " + fecha + ":\n" + agenda);
-            } else {
-               alert("Por favor, seleccione una fecha y escriba en la agenda.");
-            }
-         }
-      </script>
    </body>
 </html>
